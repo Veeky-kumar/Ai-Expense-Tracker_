@@ -43,7 +43,7 @@ const ExampleSidebar = () => {
           <Sidebar.Items>
             <Sidebar.ItemGroup>
               <Sidebar.Item
-                onClick={() => handleNavigation("/")}
+                onClick={() => handleNavigation("/api/dashboard")}
                 icon={HiChartPie}
                 className={
                   "/api/dashboard" === currentPage ? "bg-gray-100 dark:bg-gray-700" : ""
