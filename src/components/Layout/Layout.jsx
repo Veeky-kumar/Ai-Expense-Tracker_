@@ -4,7 +4,7 @@ import SidebarExpense from './SidebarExpense';
 import { Outlet } from 'react-router-dom';
 
 const Layout = () => {
-  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const toggleSidebarOption = () =>{ setSidebarOpen(!sidebarOpen); console.log(sidebarOpen)}
   return (
