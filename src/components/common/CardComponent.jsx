@@ -3,7 +3,7 @@ import { Card } from "flowbite-react";
 export function CardComponent({title, amount}) {
 
   return (
-    <Card href="#" className="max-w-sm w-full sm:min-w-64  ">
+    <Card href="#" className="max-w-md w-full sm:min-w-64  ">
       <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
        {title}
       </h5>
