@@ -11,7 +11,7 @@ connectDB();
 
 const app = express();
 app.use(express.json());  // Parse incoming JSON requests
-app.use(cors());
+app.use(cors({ origin: "*" }));
 
 // Use routes
 // app.use("/api/budgets", budgetRoutes);
