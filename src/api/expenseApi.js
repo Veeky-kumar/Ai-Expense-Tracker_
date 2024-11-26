@@ -1,12 +1,22 @@
 import axios from "axios";
-const API_BASE_URL = "https://ai-expense-tracker-ckpm.onrender.com/api"; 
+// const API_BASE_URL = "https://ai-expense-tracker-ckpm.onrender.com/api"; 
+const API_BASE_URL = "http://localhost:5000/api"; 
 
 const createExpense = async (formData) => {
   try {
     const response = await axios.post(`${API_BASE_URL}/expenses/create-expense`, formData);
-    return response.data;
+    return {data:response.data.expense, message: response.data.message};
   } catch (error) {
     console.error("Error creating expense:", error.response?.data || error.message);
+    throw error; 
+  }
+};
+const setFinancialInfo = async (formData) => {
+  try {
+    const response = await axios.post(`${API_BASE_URL}/expenses/set-financial-info`, formData);
+    return {data:response.data.expense, message: response.data.message};
+  } catch (error) {
+    console.error("Error setting budget:", error.response?.data || error.message);
     throw error; 
   }
 };
@@ -19,7 +29,32 @@ const getExpenseList = async () => {
     throw error; 
   }
 };
+const getFinancialInfo = async () => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/expenses/get-financial-info`);
+    return response.data;
+  } catch (error) {
+    console.error("Error getting info:", error.response?.data || error.message);
+    throw error; 
+  }
+};
+
+ const fetchChatInsight = async (formData) => {
+  try {
+    console.log("Chat Insight Response:");
+    const response = await axios.post(`${API_BASE_URL}/chat`, formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching chat insight:", error);
+    throw error;
+  }
+};
 
 
 
-export { createExpense, getExpenseList };
+export { createExpense, getExpenseList, setFinancialInfo,getFinancialInfo, fetchChatInsight };

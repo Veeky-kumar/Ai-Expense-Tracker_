@@ -3,6 +3,7 @@ import dotenv from "dotenv"
 import connectDB from './config/db.js';
 import { expenseRoutes } from './routes/expenseRoutes.js';
 import cors from "cors";
+import { chatRoutes } from './routes/chatRoutes.js';
 
 dotenv.config(); 
 
@@ -16,6 +17,8 @@ app.use(cors({ origin: "*" }));
 // Use routes
 // app.use("/api/budgets", budgetRoutes);
 app.use("/api/expenses", expenseRoutes);
+// API routes
+app.use("/api", chatRoutes);
 
 // Start the server
 const PORT = process.env.PORT || 5000;

@@ -11,7 +11,7 @@ const ExpenseList = () => {
   const [expenseList, setExpenseList] = useState([]);
   const handleModal = () => {
     setOpenModal(!openModal);
-    console.log("handleModal", openModal);
+    // console.log("handleModal", openModal);
   };
   useEffect(()=>{
     const expenseList = async () => {
@@ -19,7 +19,7 @@ const ExpenseList = () => {
         const response = await getExpenseList();
         if(response){
           setExpenseList(response.data);
-          console.log(response);
+          // console.log(response);
         }
       } catch (error) {
         console.log("Error while list fetching", error);
@@ -76,58 +76,6 @@ const ExpenseList = () => {
 </Table.Row>
 )}
          
-
-
-          <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
-            <Table.Cell className="p-4">
-              <Checkbox />
-            </Table.Cell>
-            <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-            Grocery Shopping
-            </Table.Cell>
-            <Table.Cell>Apr 23, 2024</Table.Cell>
-            <Table.Cell>Utilities</Table.Cell>
-            <Table.Cell>$1999</Table.Cell>
-            <Table.Cell className=" flex">
-            <a
-                href="#"
-                className=" text-cyan-600 hover:underline dark:text-cyan-500"
-              >
-                <MdEditNote />
-              </a>
-              <a
-                href="#"
-                className="  text-cyan-600 hover:underline dark:text-cyan-500"
-              >
-                <MdDelete />
-              </a>
-            </Table.Cell>
-          </Table.Row>
-          <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
-            <Table.Cell className="p-4">
-              <Checkbox />
-            </Table.Cell>
-            <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-            Accomodatioin Bill
-            </Table.Cell>
-            <Table.Cell>Apr 23, 2024</Table.Cell>
-            <Table.Cell>Entertainment</Table.Cell>
-            <Table.Cell>$99</Table.Cell>
-            <Table.Cell className=" flex">
-            <a
-                href="#"
-                className=" text-cyan-600 hover:underline dark:text-cyan-500"
-              >
-                <MdEditNote />
-              </a>
-              <a
-                href="#"
-                className="  text-cyan-600 hover:underline dark:text-cyan-500"
-              >
-                <MdDelete />
-              </a>
-            </Table.Cell>
-          </Table.Row>
         </Table.Body>
       </Table>
       {openModal && <ExpenseForm isOpen={openModal} onClose={handleModal} />}
