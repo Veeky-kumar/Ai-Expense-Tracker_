@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import NavbarExpense from './NavbarExpense';
 import SidebarExpense from './SidebarExpense';
 import { Outlet } from 'react-router-dom';
@@ -13,7 +13,7 @@ const Layout = () => {
       <header className="fixed top-0 z-10 w-full">
         <NavbarExpense  toggleSidebar={toggleSidebarOption}/>
       </header>
-
+    
       {/* Sidebar and Main Content */}
       <div className="flex pt-16">
         {/* Sidebar */}
