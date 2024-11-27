@@ -5,7 +5,7 @@ import ExpenseGraphCard from '../components/ExpenseGraphCard'
 import { Blockquote, Button, Card } from 'flowbite-react'
 // import ExpenseForm from '../components/expenseForm/ExpenseForm'
 import ExpenseList from '../components/expenseForm/ExpenseList'
-import AddFinancialInfo from '../components/expenseForm/addFinancialInfo'
+import AddFinancialInfo from '../components/expenseForm/AddFinancialInfo.jsx'
 import { fetchChatInsight, getExpenseList, getFinancialInfo, setFinancialInfo } from '../api/expenseApi'
 
 const Dashboard = () => {
