@@ -1,6 +1,6 @@
 import axios from "axios";
-// const API_BASE_URL = "https://ai-expense-tracker-ckpm.onrender.com/api"; 
-const API_BASE_URL = "http://localhost:5000/api"; 
+const API_BASE_URL = "https://ai-expense-tracker-ckpm.onrender.com/api"; 
+// const API_BASE_URL = "http://localhost:5000/api"; 
 
 const createExpense = async (formData) => {
   try {
