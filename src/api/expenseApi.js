@@ -39,12 +39,12 @@ const getFinancialInfo = async () => {
   }
 };
 
- const fetchChatInsight = async (formData) => {
+const fetchChatInsight = async (requestBody) => {
   try {
-    console.log("Chat Insight Response:");
-    const response = await axios.post(`${API_BASE_URL}/chat`, formData, {
+    console.log("Sending chat insight request with body:", requestBody);
+    const response = await axios.post(`${API_BASE_URL}/chat`, requestBody, {
       headers: {
-        "Content-Type": "multipart/form-data",
+        "Content-Type": "application/json", 
       },
     });
 

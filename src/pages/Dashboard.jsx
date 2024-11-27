@@ -63,27 +63,30 @@ const Dashboard = () => {
   },[])
   const getInsight = async () => {
     try {
-      // Create a fresh FormData object to avoid reusing the same one across re-renders
-      const formData = new FormData();
-      
-      // Make sure data is set before appending to formData
-      if (expenseList && financialData) {
-        formData.append("financialData", JSON.stringify(financialData.budget, financialData.savingsGoal));
-        formData.append("expenseList", JSON.stringify(expenseList));
+      // Ensure financial data is ready
+      if (financialData) {
+        const messageContent = `in concise Budget is ${budget} and savings goal is ${savingsGoal}`;
   
+        // Create the JSON body to send in the request
+        const requestBody = { message: messageContent };
   
-        // Send the FormData to the backend
-        const insight = await fetchChatInsight(formData);
-        setAiInsight(insight);
+        // Log the request body to verify
+        console.log("Request body to send:", requestBody);
+  
+        // Send the request to the backend API
+        const insight = await fetchChatInsight(requestBody);
+  
+        // Set the AI insight response
+        setAiInsight(insight.data);
         console.log("AI Insight Received:", insight);
       } else {
-        console.log("Data is not ready yet.");
+        console.log("Financial data is not ready yet.");
       }
-  
     } catch (error) {
       console.error("Error getting insight:", error);
     }
   };
+  
   
   
   return (
