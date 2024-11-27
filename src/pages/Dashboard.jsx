@@ -71,10 +71,6 @@ const Dashboard = () => {
         formData.append("financialData", JSON.stringify(financialData.budget, financialData.savingsGoal));
         formData.append("expenseList", JSON.stringify(expenseList));
   
-        // Log to confirm formData is populated
-        for (let pair of formData.entries()) {
-          console.log(pair[0] + ": " + pair[1]);
-        }
   
         // Send the FormData to the backend
         const insight = await fetchChatInsight(formData);
@@ -93,7 +89,7 @@ const Dashboard = () => {
   return (
     <div className=''>
         <div>
-        <Card href="#" className="max-w- min-w-64 mb-5  ">
+        <Card  className="max-w- min-w-64 mb-5  ">
             <Blockquote className=" italic text-md font-medium text-gray-600 dark:text-gray-300">
             "🤖✨ Hi! I’m your AI assistant here to help you manage expenses 💰 and achieve financial freedom 🚀."
             </Blockquote>
@@ -109,7 +105,7 @@ const Dashboard = () => {
         </Card>
         
         </div>
-        <Card href="#" className="max-w- min-w-64 mb-5 hover:bg-[#E5E7E] ">
+        <Card className="max-w- min-w-64 mb-5 hover:bg-[#E5E7E] ">
 
           <div className='pb-5'>
             <Button  gradientDuoTone="purpleToPink" className='min-w-32'
